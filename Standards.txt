@@ -1,0 +1,6 @@
+Standards:
+
+1. Follow JAVA naming conventions.
+2. Indent your code properly.
+3. In case of property names, field names, variable names, use full name.
+4. Comment your sections where necessary.
