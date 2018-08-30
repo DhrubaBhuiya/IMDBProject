@@ -10,13 +10,21 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 
-@Controller
+@RestController
 public class LoginController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String init(Model model) {
+   /* public ModelAndView init(ModelAndView model) {
+    	ModelAndView mav = new ModelAndView("/home");
     	System.out.println("Yaay");
-		return "home";
-	}
+		return mav;
+	}*/
+    public ModelAndView init() {
+    	ModelAndView mav = new ModelAndView("home");
+    	System.out.println("Yaay");
+		return mav;
+    }
 }
