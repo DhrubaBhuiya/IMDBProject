@@ -14,20 +14,4 @@ public class HomeController {
     	System.out.println("Controller reached");
 		return mav;
     }
-    
-    @RequestMapping(value = "/Contact-us", method = RequestMethod.GET)
-    public ModelAndView contact() {
-    	ModelAndView mav = new ModelAndView("Contact-us");
-		return mav;
-    }
-    @RequestMapping(value = "/About-us", method = RequestMethod.GET)
-    public ModelAndView about() {
-    	ModelAndView mav = new ModelAndView("About-us");
-		return mav;
-    }
-    @RequestMapping(value = "/Help", method = RequestMethod.GET)
-    public ModelAndView help() {
-    	ModelAndView mav = new ModelAndView("Help");
-		return mav;
-    }
 }
