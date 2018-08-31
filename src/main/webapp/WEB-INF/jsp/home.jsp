@@ -154,7 +154,7 @@ margin-top:100px;
     <div class="col-sm-8">
 	<center>
 	<div>
-	<h2>Top Rated Bollywood Movies</h2>
+	<h2>Top Rated Hollywood Movies</h2>
 	<div class="row" style="text-align:center">
 	
 	  <c:forEach var="i" begin="1" end="4">
