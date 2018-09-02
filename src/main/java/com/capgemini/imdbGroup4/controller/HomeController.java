@@ -14,4 +14,14 @@ public class HomeController {
     	System.out.println("Controller reached");
 		return mav;
     }
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public ModelAndView signup() {
+    	ModelAndView mav = new ModelAndView("signup");
+		return mav;
+    }
+    @RequestMapping(value = "/signin", method = RequestMethod.GET)
+    public ModelAndView login() {
+    	ModelAndView mav = new ModelAndView("login");
+		return mav;
+    }
 }

@@ -44,13 +44,13 @@ body {
 }
 h2
 {
-    font-family: "Times New Roman", Times, serif;
-
+font: 22px Georgia Bold;
 }
 .more
 {
  position: absolute;
     right: 20px;
+    font: Georgia;
 }
 .leftcolumn {
     float:left;
@@ -89,6 +89,17 @@ margin-top:100px;
         width: 100%;
     }
 }
+hr
+{
+height: 10px;
+border: 1;
+box-shadow: inset 0 5px 5px -2px rgba(10, 95, 180, 0.8);
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+-ms-border-radius: 3px;
+-o-border-radius: 3px;
+border-radius: 3px;
+}
 </style>
 </head>
 <body>
@@ -123,8 +134,8 @@ margin-top:100px;
         </ul></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="/signin"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </nav>
@@ -154,11 +165,11 @@ margin-top:100px;
     <div class="col-sm-8">
 	<center>
 	<div>
-	<h2>Top Rated Hollywood Movies</h2>
+	<h2>Top Rated Hollywood Movies</h2><br/>
 	<div class="row" style="text-align:center">
 	
 	  <c:forEach var="i" begin="1" end="4">
-	  <div class="column">
+	  <div class="column w3-animate-zoom">
 	    <a href="#">
 			<img src="/hmovies/hmovie<c:out value="${i}"/>.jpg" alt="Movie" class="img-rounded" style="width:80%;height:200px;" onclick="myFunction(this);">
 		</a>
@@ -167,12 +178,12 @@ margin-top:100px;
 	  
 	</div>
 	<div class="more"><a href="">Show more>></a></div>
-	
-	<h2>Top Rated Bollywood Movies</h2>
+	<br/><br/><hr/>
+	<h2>Top Rated Bollywood Movies</h2><br/>
 	<div class="row" style="text-align:center">
 	
 	  <c:forEach var="i" begin="1" end="4">
-	  <div class="column">
+	  <div class="column w3-animate-zoom">
 	    <a href="#">
 			<img src="/bmovies/bmovie<c:out value="${i}"/>.jpg" alt="Movie" class="img-rounded" style="width:80%;height:200px;" onclick="myFunction(this);">
 		</a>
@@ -181,10 +192,11 @@ margin-top:100px;
 	  
 	</div>
 	<div class="more"><a href="">Show more>></a></div>
-	<h2>Top Rated TV Shows</h2>
+	<br/><br/><hr/>
+	<h2>Top Rated TV Shows</h2><br/>
 	<div class="row" style="text-align:center">
 		<c:forEach var="i" begin="1" end="4">
-		  <div class="column">
+		  <div class="column w3-animate-zoom">
 		    <a href="#">
 				<img src="/tvshows/tv<c:out value="${i}"/>.jpg" alt="Tv Show" class="img-rounded" style="width:80%;height:200px;" onclick="myFunction(this);">
 			</a>
@@ -193,6 +205,7 @@ margin-top:100px;
 		
 	  </div>
 	  <div class="more"><a href="">Show more>></a></div>
+	  <br/><br/><hr/>
 	</div>
 	</center>
 	</div>
