@@ -3,6 +3,35 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;
+	background-color:yellow;}
+* {box-sizing: border-box;
+}
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+ .container1{
+   padding: 16px;
+   background-color:white;
+   width: 400px;
+   margin-top: 40px;
+   border: thick solid black;
+   
+   
+ }
+ input[type=text],input[type=date],textarea{
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+	background-color: #ddd;
+    outline: none;
+}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Add Content-Admin</title>
 </head>
@@ -10,37 +39,51 @@
 <center>
  <div class="container1">
 
-<form action="add" method="post" commandName="content" style="border:1px solid #ccc">
+<form action="add" method="post" commandName="content" style="border:1px solid #ccc" id="addform">
   <div class="container">
     <h1>Add new content</h1>
    <hr>
     
-     <label for="contentName"><b>Content Name</b></label>
-    <input type="text" placeholder="Enter content Name" name="contentName" required pattern="[a-zA-Z][a-zA-Z0-9\s]*">
+     <label for="contentName"><b>Name</b></label>
+    <input type="text" placeholder="Enter content Name" name="contentName" required pattern="[a-zA-Z][a-zA-Z0-9\s]*"><br/>
 
-    <label for="lastName"><b>Last Name</b></label>
-    <input type="text" placeholder="Enter Last Name" name="lastName" required>
-
-    <label for="userId"><b>User Id</b></label>
-    <input type="text" placeholder="Enter User Id" name="userId" required>
+    <label for="contentType"><b>Type</b></label><br/><br/>
+    <input type="radio"  name="contentType" value="hollywood">Hollywood movies<br/><br/>
+    <input type="radio"  name="contentType" value="bollywood">Bollywood movies<br/><br/>
+	<input type="radio"  name="contentType" value="tvShows">TV shows<br/><br/>
+	
+    <label for="contentDescription"><b>Content Description</b></label>
+    <textarea rows="4" cols="40" name="contentDescription" form="addform" required placeholder="Enter description"></textarea><br/><br/>
     
-	 <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
+	 <label for="contentGenre"><b>Genre</b></label>
+    <input type="text" placeholder="Enter genre" name="contentGenre" required  pattern="[a-zA-Z][a-zA-Z0-9\s,]*"><br/>
     
-    <label for="email"><b>Email id</b></label>
-    <input type="email" placeholder="Enter Email" name="emailId" required>
+   <label for="contentActor"><b>Actor</b></label>
+    <input type="text" placeholder="Enter actor" name="contentActor" required  pattern="[a-zA-Z][a-zA-Z0-9\s,]*"><br/>
     
-       <label for="phoneNo"><b>Phone No</b></label>
-    <input type="text" placeholder="Enter Phone No" name="phoneNo" required>
+       <label for="contentActress"><b>Actress</b></label>
+    <input type="text" placeholder="Enter actress" name="contentActress" required  pattern="[a-zA-Z][a-zA-Z0-9\s,]*"><br/>
     
+     <label for="contentDirector"><b>Director</b></label>
+    <input type="text" placeholder="Enter director" name="contentDirector" required  pattern="[a-zA-Z][a-zA-Z0-9\s,]*"><br/>
+   
+    <label for="contentProducer"><b>Producer</b></label>
+    <input type="text" placeholder="Enter producer" name="contentProducer" required  pattern="[a-zA-Z][a-zA-Z0-9\s,]*"><br/>
+    
+    <label for="contentReleaseDate"><b>Release Date</b></label>
+    <input type="date" placeholder="Enter release date" name="contentReleaseDate" required><br/>
+    
+    <label for="contentEndDate"><b>End Date</b></label>
+    <input type="date" placeholder="Enter end date" name="contentEndDate"><br/>
+   
     <div>
-    <p style="color:green;"> This is a Heading </p>
+    <p style="color:green;"> ${error} </p>
     	
     </div>
 
     <div class="clearfix">
       <input type="reset" class="resetbtn" value="Reset"/>
-      <input type="submit" class="signupbtn" value="Submit"/>
+      <input type="submit" class="submitbtn" value="Submit"/>
     </div>
   </div>
 </form>
