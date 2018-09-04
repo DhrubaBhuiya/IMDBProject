@@ -75,12 +75,13 @@ body {font-family: Arial, Helvetica, sans-serif;
     
     <label for="contentEndDate"><b>End Date</b></label>
     <input type="date" placeholder="Enter end date" name="contentEndDate"><br/>
-   
+	
+   <label for="contentImage"><b>Image</b></label><br/>
+   <input type="file" name="contentImage" accept="image/*">
     <div>
-    <p style="color:green;"> ${error} </p>
-    	
+    <p style="color:red;"> ${error} </p>
     </div>
-
+	<!-- jstl tag to check whether error occured or not -->
     <div class="clearfix">
       <input type="reset" class="resetbtn" value="Reset"/>
       <input type="submit" class="submitbtn" value="Submit"/>
