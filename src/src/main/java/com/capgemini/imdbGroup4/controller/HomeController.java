@@ -14,20 +14,19 @@ public class HomeController {
     	System.out.println("Controller reached");
 		return mav;
     }
-    
-    @RequestMapping(value = "/Contact-us", method = RequestMethod.GET)
-    public ModelAndView contact() {
-    	ModelAndView mav = new ModelAndView("Contact-us");
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public ModelAndView signup() {
+    	ModelAndView mav = new ModelAndView("signup");
 		return mav;
     }
-    @RequestMapping(value = "/About-us", method = RequestMethod.GET)
-    public ModelAndView about() {
-    	ModelAndView mav = new ModelAndView("About-us");
+    @RequestMapping(value = "/signin", method = RequestMethod.GET)
+    public ModelAndView login() {
+    	ModelAndView mav = new ModelAndView("login");
 		return mav;
     }
-    @RequestMapping(value = "/Help", method = RequestMethod.GET)
-    public ModelAndView help() {
-    	ModelAndView mav = new ModelAndView("Help");
+    @RequestMapping(value = "/success", method = RequestMethod.GET)
+    public ModelAndView success() {
+    	ModelAndView mav = new ModelAndView("success");
 		return mav;
     }
 }
