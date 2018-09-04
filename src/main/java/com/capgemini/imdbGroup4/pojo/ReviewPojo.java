@@ -1,6 +1,13 @@
 package com.capgemini.imdbGroup4.pojo;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="review")
 public class ReviewPojo {
+	@Id
 	private int content_id;
 	private String content_review;
 	private double content_rating;
@@ -11,7 +18,7 @@ public class ReviewPojo {
 	}
 	public ReviewPojo(int content_id, String content_review,
 			double content_rating, String user_id) {
-		super();
+		//super();
 		this.content_id = content_id;
 		this.content_review = content_review;
 		this.content_rating = content_rating;

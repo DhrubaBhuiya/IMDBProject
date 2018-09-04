@@ -4,15 +4,27 @@ package com.capgemini.imdbGroup4.pojo;
 
 
 
+
+import java.util.Arrays;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.mysql.jdbc.Blob;
 
 @Entity
+@Table(name="content")
 public class ContentPojo {
 	@Id
 	private int content_id;
@@ -24,7 +36,18 @@ public class ContentPojo {
 	private String content_actress;
 	private String content_director;
 	private String content_producer;
-	private String content_image;
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy", timezone = "UTC")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date contentReleaseDate;
+	@Column
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy", timezone = "UTC")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date contentEndDate;
+	@Column(name="content_image")
+	private byte[] data;
+
 	public ContentPojo()
 	{
 		
@@ -32,8 +55,8 @@ public class ContentPojo {
 	public ContentPojo(int content_id, String content_name,
 			String content_type, String content_description,
 			String content_genre, String content_actor, String content_actress,
-			String content_director, String content_producer,
-			String content_image) {
+			String content_director, String content_producer,Date contentReleaseDate,
+			Date contentEndDate, byte[] data) {
 		super();
 		this.content_id = content_id;
 		this.content_name = content_name;
@@ -44,7 +67,9 @@ public class ContentPojo {
 		this.content_actress = content_actress;
 		this.content_director = content_director;
 		this.content_producer = content_producer;
-		this.content_image = content_image;
+		this.contentReleaseDate = contentReleaseDate;
+		this.contentEndDate = contentEndDate;
+		this.data = data;
 	}
 	public int getContent_id() {
 		return content_id;
@@ -100,12 +125,25 @@ public class ContentPojo {
 	public void setContent_producer(String content_producer) {
 		this.content_producer = content_producer;
 	}
-	public String getContent_image() {
-		return content_image;
+	public Date getContentReleaseDate() {
+		return contentReleaseDate;
 	}
-	public void setContent_image(String content_image) {
-		this.content_image = content_image;
+	public void setContentReleaseDate(Date contentReleaseDate) {
+		this.contentReleaseDate = contentReleaseDate;
 	}
+	public Date getContentEndDate() {
+		return contentEndDate;
+	}
+	public void setContentEndDate(Date contentEndDate) {
+		this.contentEndDate = contentEndDate;
+	}
+	public byte[] getData() {
+        return data;
+    }
+ 
+    public void setData(byte[] data) {
+        this.data = data;
+    }
 	@Override
 	public String toString() {
 		return "ContentPojo [content_id=" + content_id + ", content_name="
@@ -114,9 +152,12 @@ public class ContentPojo {
 				+ ", content_genre=" + content_genre + ", content_actor="
 				+ content_actor + ", content_actress=" + content_actress
 				+ ", content_director=" + content_director
-				+ ", content_producer=" + content_producer + ", content_image="
-				+ content_image + "]";
+				+ ", content_producer=" + content_producer
+				+ ", contentReleaseDate=" + contentReleaseDate
+				+ ", contentEndDate=" + contentEndDate + ", data="
+				+ Arrays.toString(data) + "]";
 	}
+	
 	
 	
 	
