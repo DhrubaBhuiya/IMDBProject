@@ -5,7 +5,7 @@
 <head>
 <style>
 body {font-family: Arial, Helvetica, sans-serif;
-	background-color:yellow;}
+	background-color:#ECF6BA;}
 * {box-sizing: border-box;
 }
 /* Add padding to container elements */
@@ -18,8 +18,6 @@ body {font-family: Arial, Helvetica, sans-serif;
    width: 400px;
    margin-top: 40px;
    border: thick solid black;
-   
-   
  }
  input[type=text],input[type=date],textarea{
     width: 100%;
@@ -36,10 +34,19 @@ body {font-family: Arial, Helvetica, sans-serif;
 <title>Add Content-Admin</title>
 </head>
 <body>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+    $( document ).ready(function() {
+    	if(${msg}!="")
+       		 alert('${msg}')    
+        });
+ 
+   
+    </script>
 <center>
  <div class="container1">
 
-<form action="add" method="post" commandName="content" style="border:1px solid #ccc" id="addform">
+<form action="addcontent" method="post" commandName="content" style="border:1px solid #ccc" id="addform" enctype="multipart/form-data">
   <div class="container">
     <h1>Add new content</h1>
    <hr>
@@ -77,16 +84,17 @@ body {font-family: Arial, Helvetica, sans-serif;
     <input type="date" placeholder="Enter end date" name="contentEndDate"><br/>
 	
    <label for="contentImage"><b>Image</b></label><br/>
-   <input type="file" name="contentImage" accept="image/*">
-    <div>
+   <input type="file" name="contentImage" accept="image/*" required>
+    <div><br/><br/>
     <p style="color:red;"> ${error} </p>
-    </div>
-	<!-- jstl tag to check whether error occured or not -->
+    </div><br/>
+	
     <div class="clearfix">
       <input type="reset" class="resetbtn" value="Reset"/>
       <input type="submit" class="submitbtn" value="Submit"/>
     </div>
   </div>
+  <br/><a href="">Home</a>
 </form>
 
 </div>
