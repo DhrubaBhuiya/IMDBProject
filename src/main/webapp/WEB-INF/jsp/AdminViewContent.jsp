@@ -9,6 +9,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
   
 <title>Insert title here</title>
 <style>
@@ -40,16 +49,12 @@ th {
 
     </div>
 <table  border="2">
-<tr>
-<td>
 
-
-       </td>
-       </tr>
   <tr  style="background-color:#white;">
-      <u> <strong> Content Details</strong></u>
+      <u> <strong><h2> Content Details</h2></strong></u>
         </tr>
       <tr>
+      <center>
           <th class="border"><u>Content_ID</u></th>
            <th class="border"><u>Content_Name</u></th>
           <th class="border"><u>Content_Type</u></th>
@@ -62,7 +67,7 @@ th {
                <th class="border"><u>Content_Image</u></th>
                 <th class="border"><u>Content_ReleaseDate</u></th>
                  <th class="border"><u>Content_EndDate</u></th>
-               
+             </center>  
                 
        </tr>
   </thead>                    
@@ -71,18 +76,18 @@ th {
   <tbody>
       <c:forEach var="ContentPojo" items="${contentList}">                     
           <tr>
-              <td>${ContentPojo.content_id}</td>
-              <td>${ContentPojo.content_name}</td>
-              <td>${ContentPojo.content_type}</td>
-               <td>${ContentPojo.content_description}</td>
-                <td>${ContentPojo.content_genre}</td>
-                 <td>${ContentPojo.content_actor}</td>
-                  <td>${ContentPojo.content_actress}</td>
-                   <td>${ContentPojo.content_director}</td>
-                    <td>${ContentPojo.content_producer}</td>
-                    <td>${ContentPojo.data}</td>
-                     <td>${ContentPojo.contentEndDate}</td>
-                      <td>${ContentPojo.contentReleaseDate}</td>
+              <td><center>${ContentPojo.content_id}</center></td>
+              <td><center>${ContentPojo.contentname}</center></td>
+              <td><center>${ContentPojo.content_type}</center></td>
+               <td><center>${ContentPojo.content_description}</center></td>
+                <td><center>${ContentPojo.content_genre}</center></td>
+                 <td><center>${ContentPojo.content_actor}</center></td>
+                  <td><center>${ContentPojo.content_actress}</center></td>
+                   <td><center>${ContentPojo.content_director}</center></td>
+                    <td><center>${ContentPojo.content_producer}</center></td>
+                    <td><center>${ContentPojo.data}</center></td>
+                     <td><center>${ContentPojo.contentEndDate}</center></td>
+                      <td><center>${ContentPojo.contentReleaseDate}</center></td>
                       
             
           </tr>
@@ -100,21 +105,25 @@ th {
       <br>
       <br>
       <center>
+<div class="footer">
+ <ul class="pager">
+    <li class="Previous"><a href="AdminViewContent"><input type="submit" value="Previous Page"></a></li>
+    <li class="Next"><a href="AdminViewContent"><input type="submit" value="Next Page"></a></li>
+         
+  </ul>
+</div>
+      <center>
       <div class="footer">
-      <a href="AdminView">
+	  <ul class="breadcrumb">
+     <li> <a href="AdminView">
       <input type="submit" value="Back">
-      </a>
-      </form>
-    </div>
-      <br>
-     <br>
-     <br>
-    </div>
-    <div class="footer">
-      <a href="AdminViewReview">
+      </a></li>
+      <li> <a href="AdminViewReview">
       <input type="submit" value="View Review & Ratings">
       </a>
+	  </li>
+      </div>
     </center>
-    </center>
+     
 </body>
 </html>
