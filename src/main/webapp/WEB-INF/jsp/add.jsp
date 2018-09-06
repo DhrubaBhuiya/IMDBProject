@@ -36,12 +36,12 @@ body {font-family: Arial, Helvetica, sans-serif;
 <body>
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script>
-    $( document ).ready(function() {
-    	if(${msg}!="")
-       		 alert('${msg}')    
-        });
- 
-   
+   $( document ).ready(function() {  
+	   var msg = '${msg}';
+	   if(msg!="")
+    		alert(msg);
+
+   });
     </script>
 <center>
  <div class="container1">

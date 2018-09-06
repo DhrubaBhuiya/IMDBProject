@@ -3,6 +3,9 @@ package com.capgemini.imdbGroup4.controller;
 import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.sql.rowset.serial.SerialException;
 
@@ -29,7 +32,7 @@ public class AddController {
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView init() {
     	ModelAndView mav = new ModelAndView("add");
-
+    	mav.addObject("msg",null);
 		return mav;
     }
 	
@@ -38,12 +41,27 @@ public class AddController {
 	@RequestMapping(value="/addcontent",method=RequestMethod.POST)
 	public ModelAndView addContent(Model model, @ModelAttribute("content") ContentPojo content,@RequestParam("contentImage") MultipartFile file){	
 		ModelAndView mav = new ModelAndView();
+		Date date=null;
+		if(content.getContentEndDate()!=null)
+			date=content.getContentEndDate();
+		else
+		{
+			//DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			date=new Date();
+		}
 		if((adminAddService.findByContentName(content.getContentName()) != null)){
 			mav.addObject("error", "Content Name already exists");
 			mav.setViewName("add");
 			return mav;
 		}
 		
+		else if(content.getContentReleaseDate().compareTo(date) > 0)
+		{
+			mav.addObject("error", "Release date should be before End date");
+			mav.setViewName("add");
+			return mav;
+			
+		}
 		if (file != null) {
                 System.out.println("Saving file: " + file.getOriginalFilename());
                  
