@@ -27,8 +27,8 @@ import com.mysql.jdbc.Blob;
 @Table(name="content")
 public class ContentPojo {
 	@Id
-	private int content_id;
-	private String content_name;
+	private int id;
+	private String contentname;
 	private String content_type;
 	private String content_description;
 	private String content_genre;
@@ -52,14 +52,14 @@ public class ContentPojo {
 	{
 		
 	}
-	public ContentPojo(int content_id, String content_name,
+	public ContentPojo(int id, String contentname,
 			String content_type, String content_description,
 			String content_genre, String content_actor, String content_actress,
 			String content_director, String content_producer,Date contentReleaseDate,
 			Date contentEndDate, byte[] data) {
 		super();
-		this.content_id = content_id;
-		this.content_name = content_name;
+		this.id = id;
+		this.contentname = contentname;
 		this.content_type = content_type;
 		this.content_description = content_description;
 		this.content_genre = content_genre;
@@ -71,17 +71,17 @@ public class ContentPojo {
 		this.contentEndDate = contentEndDate;
 		this.data = data;
 	}
-	public int getContent_id() {
-		return content_id;
+	public int getId() {
+		return id;
 	}
-	public void setContent_id(int content_id) {
-		this.content_id = content_id;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getContent_name() {
-		return content_name;
+	public String getContentname() {
+		return contentname;
 	}
-	public void setContent_name(String content_name) {
-		this.content_name = content_name;
+	public void setContentname(String contentname) {
+		this.contentname = contentname;
 	}
 	public String getContent_type() {
 		return content_type;
@@ -146,8 +146,8 @@ public class ContentPojo {
     }
 	@Override
 	public String toString() {
-		return "ContentPojo [content_id=" + content_id + ", content_name="
-				+ content_name + ", content_type=" + content_type
+		return "ContentPojo [id=" + id + ", contentname="
+				+ contentname + ", content_type=" + content_type
 				+ ", content_description=" + content_description
 				+ ", content_genre=" + content_genre + ", content_actor="
 				+ content_actor + ", content_actress=" + content_actress

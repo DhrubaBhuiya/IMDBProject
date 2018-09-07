@@ -8,7 +8,7 @@ import javax.persistence.Table;
 @Table(name="review")
 public class ReviewPojo {
 	@Id
-	private int content_id;
+	private int id;
 	private String content_review;
 	private double content_rating;
 	public String user_id;
@@ -16,19 +16,19 @@ public class ReviewPojo {
 	{
 		
 	}
-	public ReviewPojo(int content_id, String content_review,
+	public ReviewPojo(int id, String content_review,
 			double content_rating, String user_id) {
 		//super();
-		this.content_id = content_id;
+		this.id = id;
 		this.content_review = content_review;
 		this.content_rating = content_rating;
 		this.user_id = user_id;
 	}
-	public int getContent_id() {
-		return content_id;
+	public int getId() {
+		return id;
 	}
-	public void setContent_id(int content_id) {
-		this.content_id = content_id;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getContent_review() {
 		return content_review;
@@ -50,7 +50,7 @@ public class ReviewPojo {
 	}
 	@Override
 	public String toString() {
-		return "ReviewPojo [content_id=" + content_id + ", content_review="
+		return "ReviewPojo [id=" + id + ", content_review="
 				+ content_review + ", content_rating=" + content_rating
 				+ ", user_id=" + user_id + "]";
 	}

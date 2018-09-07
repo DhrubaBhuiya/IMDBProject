@@ -44,8 +44,8 @@ public class ImdbGroup4ApplicationTests {
 	public void getAllContent()
 	{
 		
-	    c.getContent_id();
-		c.getContent_name();
+	    c.getId();
+		c.getContentname();
 		c.getContent_type();
 		c.getContent_actor();
 		c.getContent_actress();
@@ -55,7 +55,7 @@ public class ImdbGroup4ApplicationTests {
 		c.getContentEndDate();
 		c.getContentReleaseDate();
 		//ContentPojo content1=new ContentPojo();
-		 c.setContent_name("raazi");
+		 c.setContentname("raazi");
 			c.setContent_type("bollywood");
 			c.setContent_description("An Indian spy marries a Pakistani man during the Indo-Pakistan War of 1971.");
 			c.setContent_genre("Thriller");
@@ -73,14 +73,14 @@ public class ImdbGroup4ApplicationTests {
 			@Test
 			public void getAllReview()
 			{
-				p.getContent_id();
+				p.getId();
 				p.getContent_rating();
 				p.getContent_review();
 				p.getUser_id();
 			   
 			
 				
-				 p.setContent_id(1);
+				 p.setId(1);
 					p.setContent_rating(3.5);
 					p.setContent_review("Standard Movie ");
 					p.setUser_id("sss");
