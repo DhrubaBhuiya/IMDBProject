@@ -1,6 +1,5 @@
 package com.capgemini.imdbGroup4.pojo;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,15 +10,10 @@ public class UserPojo {
 	
 	@Id
 	private String userId;
-	@Column
 	private String firstName;
-	@Column
 	private String lastName;
-	@Column
 	private String password;
-	@Column
 	private String emailId;
-	@Column
 	private String phoneNo;
 	
 	public UserPojo() {

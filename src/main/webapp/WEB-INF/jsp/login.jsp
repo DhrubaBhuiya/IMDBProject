@@ -107,7 +107,7 @@ a{
     <hr>
 <div class="input-container">
     <i class="fa fa-user icon"></i>
-    <input class="input-field" type="text" placeholder="Username" name="id">
+    <input class="input-field" type="text" placeholder="Userid/Email" name="id">
   </div>
 
   
@@ -119,7 +119,9 @@ a{
 
    
     <hr>
-<button type="submit" class="registerbtn"></a>Login</button>
+<button type="submit" class="registerbtn">Login</button>
+<div style="color: red">${error}</div>
+
   <div >
   <hr>
   <b>New user</b>

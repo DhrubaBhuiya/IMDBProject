@@ -24,4 +24,9 @@ public class HomeController {
     	ModelAndView mav = new ModelAndView("login");
 		return mav;
     }
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    public ModelAndView admin() {
+    	ModelAndView mav = new ModelAndView("admin-login");
+		return mav;
+    }
 }
