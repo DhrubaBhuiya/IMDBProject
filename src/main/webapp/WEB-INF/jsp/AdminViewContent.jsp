@@ -1,0 +1,146 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+      <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page import="java.sql.*" %>
+<%@ page import="java.io.*" %> 
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  
+<title>Insert title here</title>
+<style>
+th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+     background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<center>
+ <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+       <a href="#" class="pull-left"><img src="/images/elogo.jpg" alt="logo"></a>
+       </div>
+       </div>
+       </nav> 
+       </center>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+
+     <script type="text/javascript">
+        function makeTableScroll() {
+            // Constant retrieved from server-side via JSP
+            var maxRows = 10;
+
+            var table = document.getElementById('myTable');
+            var wrapper = table.parentNode;
+            var rowsInTable = table.rows.length;
+            var height = 0;
+            if (rowsInTable > maxRows) {
+                for (var i = 0; i < maxRows; i++) {
+                    height += table.rows[i].clientHeight;
+                }
+                wrapper.style.height = height + "px";
+            }
+        }
+    </script>
+</head>
+<body onload="makeTableScroll();">
+    <div class="scrollingTable">
+        <table id="myTable" border="2">
+ <tr  style="background-color:#white;">
+      <u> <strong><h2> Content Details</h2></strong></u>
+        </tr>
+      <tr>
+      <center>
+          <th class="border"><u>Content_ID</u></th>
+           <th class="border"><u>Content_Name</u></th>
+          <th class="border"><u>Content_Type</u></th>
+           <th class="border"><u>Content_Description</u></th>
+            <th class="border"><u>Content_Genre</u></th>
+             <th class="border"><u>Content_Actor</u></th>
+              <th class="border"><u>Content_Actress</u></th>
+               <th class="border"><u>Content_Director</u></th>
+                <th class="border"><u>Content_Producer</u></th>
+                <th class="border"><u>Content_ReleaseDate</u></th>
+                 <th class="border"><u>Content_EndDate</u></th>
+                 <th class="border"><u>Content_Image</u></th>
+             </center>  
+                
+       </tr>
+  </thead>                    
+
+
+  <tbody>
+      <c:forEach var="ContentPojo" items="${contentList}">                     
+          <tr>
+              <td><center>${ContentPojo.contentId}</center></td>
+              <td><center>${ContentPojo.contentName}</center></td>
+              <td><center>${ContentPojo.contentType}</center></td>
+               <td><center>${ContentPojo.contentDescription}</center></td>
+                <td><center>${ContentPojo.contentGenre}</center></td>
+                 <td><center>${ContentPojo.contentActor}</center></td>
+                  <td><center>${ContentPojo.contentActress}</center></td>
+                   <td><center>${ContentPojo.contentDirector}</center></td>
+                    <td><center>${ContentPojo.contentProducer}</center></td>
+                 	<td><center>${ContentPojo.contentReleaseDate}</center></td>
+                     <td><center>${ContentPojo.contentEndDate}</center></td>  
+                      <td><center><img src="/content/${ContentPojo.contentName}.jpg" height="40px"/></center></td>
+                      
+            
+          </tr>
+      </c:forEach>         
+   </tbody>    
+      </table>
+      </center>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <center>
+<!-- <div class="footer">
+ <ul class="pager">
+    <li class="Previous"><a href="AdminViewContent"><input type="submit" value="Previous Page"></a></li>
+    <li class="Next"><a href="AdminViewContent"><input type="submit" value="Next Page"></a></li>
+         
+  </ul>
+</div> -->
+      <center>
+      <div class="footer">
+	  <ul class="breadcrumb">
+     <li> <a href="AdminView">
+      <input type="submit" value="Back">
+      </a></li>
+      <li> <a href="AdminViewReview">
+      <input type="submit" value="View Review & Ratings">
+      </a>
+	  </li>
+      </div>
+    </center>
+     
+</body>
+</html>

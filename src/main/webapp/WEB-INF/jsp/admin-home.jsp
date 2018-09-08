@@ -7,10 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+<center>
 <h2>Hello admin ${sessionScope.admin_name}</h2>
-<a href="addfilms.jsp">Add content</a><br/><br>
-<a href="viewfilms.jsp">View content</a><br/>
+<a href="addcontent">Add content</a><br/><br>
+<a href="AdminView">View content</a><br/><br>
 <a href="Adminlogout">Log out</a>
-
+</center>
 </body>
 </html>
