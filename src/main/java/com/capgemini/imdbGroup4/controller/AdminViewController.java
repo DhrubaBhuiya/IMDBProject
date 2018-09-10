@@ -90,7 +90,7 @@ import com.capgemini.imdbGroup4.service.AdminViewServiceReview;
 				e1.printStackTrace();
 			}
 		     try {
-				ImageIO.write(bImage2, "jpg", new File("C:/Users/dbhuiya/Images/"+c.getContentName()+".jpg")) ;
+				ImageIO.write(bImage2, "jpg", new File("./src/main/resources/static/content/"+c.getContentName()+".jpg")) ;
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

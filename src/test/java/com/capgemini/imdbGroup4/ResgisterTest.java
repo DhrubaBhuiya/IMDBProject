@@ -39,7 +39,7 @@ public class ResgisterTest {
 		assertEquals(registerService.findByUserIdAndPassword("prag96", "bmsit123").getUserId(), "prag96");
 	
 		Mockito.when(userRepository.findByEmailIdAndPassword("prabhu.pragnya@gmail.com", "bmsit123")).thenReturn(new UserPojo("prag96","pragnya","prabhu","bmsit123","prabhu.pragnya@gmail.com","9036851911"));
-		assertEquals(registerService.findByEmailIdAndPassword("prabhu.pragnya@gmail.com", "bmsit123").getEmailId(), "prag@gmail.com");
+		assertEquals(registerService.findByEmailIdAndPassword("prabhu.pragnya@gmail.com", "bmsit123").getEmailId(), "prabhu.pragnya@gmail.com");
 	
 		Mockito.when(userRepository.findByUserId("prag96")).thenReturn(new UserPojo("prag96","pragnya","prabhu","bmsit123","prabhu.pragnya@gmail.com","9036851911"));
 		assertEquals(registerService.findByUserId("prag96").getUserId(), "prag96");
