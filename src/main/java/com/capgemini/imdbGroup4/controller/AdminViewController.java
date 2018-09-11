@@ -75,27 +75,31 @@ import com.capgemini.imdbGroup4.service.AdminViewServiceReview;
 		  //ContentPojo c= adminViewServiceContent.getAll();
 		  // String folder="";
 		   for(ContentPojo c:contentList){
-			   System.out.println(c);
-		   ByteArrayInputStream bis=new ByteArrayInputStream(c.getData());
+		   
 		    /*if(c.getContentType().equals("hollywood"))folder="hmovies";
 		    else if(c.getContentType().equals("bollywood"))folder="bmovies";
 		    else if(c.getContentType().equals("tvShows"))folder="tvshows";*/
-		    BufferedImage bImage2=null;
+		    
 			mav.addObject("contentList",contentList);
 			//mav.addObject("folder",folder);
-			try {
-				bImage2 = ImageIO.read(bis);
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		     try {
-				ImageIO.write(bImage2, "jpg", new File("./src/main/resources/static/content/"+c.getContentName()+".jpg")) ;
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		     System.out.println("image created");
+			File file = new File("./src/main/resources/static/content/"+c.getContentName()+".jpg");
+			if(!file.exists()){
+				ByteArrayInputStream bis=new ByteArrayInputStream(c.getData());
+				BufferedImage bImage2=null;
+				try {
+					bImage2 = ImageIO.read(bis);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			     try {
+					ImageIO.write(bImage2, "jpg", new File("./src/main/resources/static/content/"+c.getContentName()+".jpg")) ;
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			     System.out.println("image created");
+			   }
 		   }
 		mav.setViewName("AdminViewContent");
 		return mav;

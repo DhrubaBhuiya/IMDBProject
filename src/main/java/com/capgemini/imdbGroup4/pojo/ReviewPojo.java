@@ -10,14 +10,14 @@ public class ReviewPojo {
 	@Id
 	private int id;
 	private String content_review;
-	private double content_rating;
+	private int content_rating;
 	public String user_id;
 	public ReviewPojo()
 	{
 		
 	}
 	public ReviewPojo(int id, String content_review,
-			double content_rating, String user_id) {
+			int content_rating, String user_id) {
 		//super();
 		this.id = id;
 		this.content_review = content_review;
@@ -36,10 +36,10 @@ public class ReviewPojo {
 	public void setContent_review(String content_review) {
 		this.content_review = content_review;
 	}
-	public double getContent_rating() {
+	public int getContent_rating() {
 		return content_rating;
 	}
-	public void setContent_rating(double content_rating) {
+	public void setContent_rating(int content_rating) {
 		this.content_rating = content_rating;
 	}
 	public String getUser_id() {

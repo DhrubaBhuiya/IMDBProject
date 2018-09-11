@@ -108,24 +108,25 @@ th {
       <br>
       <br>
      <center>
-<div class="footer">
+<!-- <div class="footer">
                  
   <ul class="pager">
     <li class="Previous"><a href="AdminViewContent"><input type="submit" value="Previous Page"></a></li>
     <li class="Next"><a href="AdminViewContent"><input type="submit" value="Next Page"></a></li>
          
   </ul>
-</div>
+</div> -->
       <center>
       <div class="footer">
 	  <ul class="breadcrumb">
      <li> <a href="AdminView">
       <input type="submit" value="Back">
       </a></li>
-      <li> <a href="AdminViewReview">
-      <input type="submit" value="View Review & Ratings">
+      <li> <a href="AdminViewContent">
+      <input type="submit" value="View Contents">
       </a>
 	  </li>
+	  </ul>
       </div>
     </center>
 </body>
