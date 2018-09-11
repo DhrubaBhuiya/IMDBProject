@@ -33,7 +33,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -50,33 +49,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-<<<<<<< HEAD
-		
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		
-		<!-- Tomcat Embed -->
-              <dependency>
-                     <groupId>org.springframework.boot</groupId>
-                     <artifactId>spring-boot-starter-tomcat</artifactId>
-                     <scope>provided</scope>
-              </dependency>
-              <!-- JSTL -->
-              <dependency>
-                     <groupId>javax.servlet</groupId>
-                     <artifactId>jstl</artifactId>
-              </dependency>
-              <!-- To compile JSP files -->
-              <dependency>
-                     <groupId>org.apache.tomcat.embed</groupId>
-                     <artifactId>tomcat-embed-jasper</artifactId>
-                     <scope>provided</scope>
-              </dependency>
-		
-=======
 		<!-- Tomcat Embed -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -94,7 +66,18 @@
 			<artifactId>tomcat-embed-jasper</artifactId>
 			<scope>provided</scope>
 		</dependency>
->>>>>>> 490ef6567483b101561724b5ed404cb6fd57e624
+		<!-- commons-io (fileupload dependency) -->
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.4</version>
+</dependency>
+<!-- fileupload -->
+<dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.3</version>
+    </dependency>
 	</dependencies>
 
 	<build>
