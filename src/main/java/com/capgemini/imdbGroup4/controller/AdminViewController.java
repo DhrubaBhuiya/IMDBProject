@@ -44,53 +44,56 @@ import com.capgemini.imdbGroup4.service.AdminViewServiceReview;
 		@Autowired
 		private AdminAddService adminAddService;
 		
-	@RequestMapping(value="/AdminView", method = RequestMethod.GET)
-		public ModelAndView getView()
-		
-		{ModelAndView mav= new ModelAndView("AdminView");
-		return mav;
-		}
-		@RequestMapping(value="/AdminViewContent", method = RequestMethod.GET)
-		public ModelAndView getAllcontent()throws Exception
+	
+			@RequestMapping(value="/AdminViewContent", method = RequestMethod.GET)
+		public ModelAndView getAllcontent(HttpServletRequest req, HttpServletResponse res)throws Exception
 		{
- //ContentPojo c=new ContentPojo();
+			HttpSession session = req.getSession();
+			if(session.getAttribute("admin_name") == null){
+				try {
+					req.getRequestDispatcher("/admin").forward(req, res);
+				} catch (ServletException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		ModelAndView mav= new ModelAndView();
 		List<ContentPojo> contentList=adminViewServiceContent.getAllContent();
-		mav.addObject("contentList",contentList);
+		  //ContentPojo c= adminViewServiceContent.getAll();
+		  // String folder="";
+		   for(ContentPojo c:contentList){
+		   
+		    /*if(c.getContentType().equals("hollywood"))folder="hmovies";
+		    else if(c.getContentType().equals("bollywood"))folder="bmovies";
+		    else if(c.getContentType().equals("tvShows"))folder="tvshows";*/
+		    
+			mav.addObject("contentList",contentList);
+			//mav.addObject("folder",folder);
+			File file = new File("./src/main/resources/static/content/"+c.getContentName()+".jpg");
+			if(!file.exists()){
+				ByteArrayInputStream bis=new ByteArrayInputStream(c.getData());
+				BufferedImage bImage2=null;
+				try {
+					bImage2 = ImageIO.read(bis);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			     try {
+					ImageIO.write(bImage2, "jpg", new File("./src/main/resources/static/content/"+c.getContentName()+".jpg")) ;
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			     System.out.println("image created");
+			   }
+		   }
 		mav.setViewName("AdminViewContent");
 		return mav;
 		}
-		
-		@RequestMapping(value = "/view/{content_id}", method = RequestMethod.GET)
-	    public void viewImage(@PathVariable int id) {
-			Scanner sc=new Scanner(System.in);
-			System.out.println("Enter the number ");
-		int n=sc.nextInt();
-		for(id=1;id<=n;id++)
-		{
-	     ContentPojo c=adminAddService.findById(id);
-	     /*Blob arr=new Blob(c.getData());
-	     for(byte b:arr)
-	    	 System.out.println(b);*/
-	     ByteArrayInputStream bis = new ByteArrayInputStream(c.getData());
-	     BufferedImage bImage2=null;
-		try {
-			bImage2 = ImageIO.read(bis);
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-	     try {
-			ImageIO.write(bImage2, "jpg", new File("\temp") );
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	     System.out.println("image created");
-	    }
-		}
-		
-		
 		
 			@RequestMapping(value ="/AdminViewReview", method = RequestMethod.GET)
 			public ModelAndView getAllReview()
